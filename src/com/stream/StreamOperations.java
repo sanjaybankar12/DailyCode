@@ -26,16 +26,34 @@ public class StreamOperations {
 		numList.add(2);
 		numList.add(3);
 		numList.add(4);
-		numList.add(5);
-		
-		int sum = numList.stream().filter(value -> value%2 == 0).collect(Collectors.summingInt(Integer::intValue));
+		numList.add(5);			
+		System.out.println("Given list = " + numList);
+		//int sum = numList.stream().filter(value -> value%2 == 0).collect(Collectors.summingInt(Integer::intValue));
 		//int sum = numList.stream().filter(value -> value%2 == 0).reduce(0, (a, b) -> (a + b));
-		//int sum = numList.stream().filter(value -> value%2 == 0).reduce(0, Integer::sum);
+		int sum = numList.stream().filter(value -> value%2 == 0).reduce(0, Integer::sum);
 		System.out.println("Sum of even number = " + sum);
+		
+		int maxVal = numList.stream().max((o1, o2) -> o1 - o2).get();
+		System.out.println("Max value = " + maxVal);
 		
 		System.out.println("\n---Employee sorted by Name---");
 		List<Employee> empls = employees.stream().sorted((o1, o2) -> o1.getName().compareTo(o2.getName())).collect(Collectors.toList());
 		System.out.println(empls);
+		
+		
+		String str = "Welcome to the Home";
+		String[] strArr = str.split("");
+		for(int i = 0;i<strArr.length;i++) {
+			String el = strArr[i];
+			int idx = -1;
+			if((i+1) < strArr.length)
+				idx = str.substring(i+1).indexOf(el);
+			if(idx != -1) {
+				System.out.println(el);
+				break;
+			}
+		}
+		
 		
 		
 	}
