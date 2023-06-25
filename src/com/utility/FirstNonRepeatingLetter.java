@@ -29,7 +29,7 @@ public class FirstNonRepeatingLetter {
 
 		String s = "welcome to Pune";
 		String firstLetter = new FirstNonRepeatingLetter().findFirstNonRepeatingLetter(s);
-		System.out.println(firstLetter);
+		System.out.println("First non repeating letter in '" + s + "' is " + firstLetter);
 	}
 	
 }
