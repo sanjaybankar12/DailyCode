@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 public class StreamOperations {
 
 	public static void main(String[] args) {
+		
+		System.out.println(10.0/0);
 
 		List<Employee> employees = new ArrayList<>();
 		employees.add(new Employee(1,"Ram","COMP",18000));
@@ -29,7 +31,7 @@ public class StreamOperations {
 		numList.add(5);			
 		System.out.println("Given list = " + numList);
 		//int sum = numList.stream().filter(value -> value%2 == 0).collect(Collectors.summingInt(Integer::intValue));
-		//int sum = numList.stream().filter(value -> value%2 == 0).reduce(0, (a, b) -> (a + b));
+		//int sum = numList.stream().flter(value -> value%2 == 0).reduce(0, (a, b) -> (a + b));
 		int sum = numList.stream().filter(value -> value%2 == 0).reduce(0, Integer::sum);
 		System.out.println("Sum of even number = " + sum);
 		
@@ -40,21 +42,14 @@ public class StreamOperations {
 		List<Employee> empls = employees.stream().sorted((o1, o2) -> o1.getName().compareTo(o2.getName())).collect(Collectors.toList());
 		System.out.println(empls);
 		
-		
-		String str = "Welcome to the Home";
-		String[] strArr = str.split("");
-		for(int i = 0;i<strArr.length;i++) {
-			String el = strArr[i];
-			int idx = -1;
-			if((i+1) < strArr.length)
-				idx = str.substring(i+1).indexOf(el);
-			if(idx != -1) {
-				System.out.println(el);
-				break;
-			}
-		}
-		
-		
+		//Using Flat Map
+		System.out.println("\n---Flat map Example---");
+		List<String> num1 = Arrays.asList("B","D","E","N");
+		List<String> num2 = Arrays.asList("E","M","D","G");
+		List<List<String>> list = Arrays.asList(num1, num2);
+		System.out.println("Input : " + list);
+		Set<String> ls = list.stream().flatMap(List::stream).collect(Collectors.toSet());
+		System.out.println("Output : " + ls);
 		
 	}
 
