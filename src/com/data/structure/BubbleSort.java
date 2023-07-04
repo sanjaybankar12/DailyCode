@@ -4,6 +4,7 @@ package com.data.structure;
  * 
  * Bubble sort is sorting algorithm which sort the array element by moving greater element at the end.
  * n-1 element sort and time complexity will be O(n^2)
+ * Swap between adjacent elements and multiple swap in one iteration
  */
 public class BubbleSort {
 
