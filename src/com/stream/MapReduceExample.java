@@ -30,6 +30,7 @@ public class MapReduceExample {
 		System.out.println(listStr);
 		int tot = listStr.stream().mapToInt(n -> Integer.parseInt(n)).filter(num -> num % 2 == 0).sum();
 		System.out.println("Total sum of even numbers = " + tot);
+
 	}
 
 }
