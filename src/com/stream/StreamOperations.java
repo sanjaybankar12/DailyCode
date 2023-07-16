@@ -64,6 +64,12 @@ public class StreamOperations {
 		Set<String> ls = list.stream().flatMap(List::stream).collect(Collectors.toSet());
 		System.out.println("Output : " + ls);
 		
+		System.out.println("--------------------------------");
+		String str = "welcome world";
+		List<String> listStr = Arrays.asList(str.split(""));
+		Map mapStr = listStr.stream().filter(s -> !"".equals(s.trim())).collect(Collectors.groupingBy(String::new, Collectors.counting()));
+		System.out.println(mapStr);
+		
 	}
 
 }
