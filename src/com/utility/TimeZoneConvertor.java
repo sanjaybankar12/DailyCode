@@ -34,6 +34,9 @@ public class TimeZoneConvertor {
 		System.out.println("Date (America/Chicago) : " + americaChicagoDateTime.format(dtf));
 
 		
+		LocalDate ld = LocalDate.now();
+		ld = ld.plusDays(2);
+		System.out.println(ld);
 		
 	}
 
