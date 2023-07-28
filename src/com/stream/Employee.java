@@ -7,6 +7,10 @@ public class Employee {
 	private String dept;
 	private int salary;
 	
+	public Employee() {
+		
+	}
+	
 	public Employee(int id, String name, String dept, int salary) {
 		super();
 		this.id = id;
@@ -44,6 +48,24 @@ public class Employee {
 	public void setSalary(int salary) {
 		this.salary = salary;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		
+		if(obj instanceof Employee) {
+			Employee e = (Employee)obj;
+			if(this.id == e.id && this.name.equals(e.name) && this.salary == e.salary && this.dept.equals(e.dept)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return 1;
+	}
+	
 	
 	
 }
