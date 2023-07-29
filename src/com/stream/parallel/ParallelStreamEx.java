@@ -1,5 +1,6 @@
 package com.stream.parallel;
 
+import java.util.Arrays;
 import java.util.stream.IntStream;
 
 /**
@@ -26,6 +27,13 @@ public class ParallelStreamEx {
 		});
 		end = System.currentTimeMillis();
 		System.out.println("\nParallel stream time : " + (end - start));
+		
+		
+		int[] arr = {1,10,42,1,0,1,0,2,2,2,5,6,6,8,9,9,4,5,6,4,8,5};
+		Arrays.stream(arr).parallel().forEach(n -> System.out.println(Thread.currentThread().getName() + " : " + n));
+		
+		
+		
 	}
 
 }
